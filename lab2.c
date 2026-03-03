@@ -1,17 +1,16 @@
 #include <stdio.h>
 
-int function(int x){
+void function(int x, int* i){
+	if(x == 0)
+		return;
 	x=x-2;
-	return x;
+	(*i)++;
+	function(x, i);
 }
 
 int main(){
 	int a=30, i=0;
-	
-	while (a>0){
-		a=function(a);
-		i++;
-	}
+	function(a, &i);	
 	printf("%d", i);
 	return 0;	
 }
